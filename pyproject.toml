@@ -1,0 +1,11 @@
+[project]
+name = "openrecommend"
+version = "0.1.0"
+description = "Learn how apps guess what you will like: similarity, prediction, matrix factorisation and fair testing, in 3 sessions."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy", "matplotlib"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
