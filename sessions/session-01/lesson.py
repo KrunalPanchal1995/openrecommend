@@ -31,6 +31,16 @@ RATINGS = np.array([
     [5, 5, 2, 1, 4, 4],        # Eli
 ], dtype=float)
 
+# A second invented example with different tastes; Mina has not seen Night Chase.
+SECOND_PEOPLE = ["Mina", "Noah", "Omar", "Priya", "Quinn"]
+SECOND_RATINGS = np.array([
+    [5, 1, 4, 2, 5, NAN],
+    [5, 1, 4, 2, 4, 5],
+    [1, 5, 1, 5, 1, 1],
+    [4, 2, 5, 1, 4, 4],
+    [2, 4, 2, 4, 2, 2],
+], dtype=float)
+
 
 # %% [markdown]
 # ## Step 1: how far apart are two people?
@@ -93,6 +103,14 @@ if __name__ == "__main__":
     print("Ana's predicted rating for Night Chase, 1 neighbour :", predict(RATINGS, 0, 5, k=1))
     print("Ana's predicted rating for Night Chase, 2 neighbours:", predict(RATINGS, 0, 5, k=2))
     print("recommendation for Ana:", FILMS[recommend(RATINGS, 0)[0]])
+
+    print("Second invented ratings table (5 people x 6 films):")
+    for name, row in zip(SECOND_PEOPLE, SECOND_RATINGS):
+        print(f"{name:5s}", row)
+    second_gaps = all_gaps(SECOND_RATINGS, 0)
+    nearest = int(np.argmin(second_gaps))
+    print(f"nearest person to Mina: {SECOND_PEOPLE[nearest]}")
+    print("recommendation for Mina:", FILMS[recommend(SECOND_RATINGS, 0)[0]])
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
     im = axes[0].imshow(np.ma.masked_invalid(RATINGS), cmap="viridis", vmin=1, vmax=5)
