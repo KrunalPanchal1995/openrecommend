@@ -56,6 +56,18 @@ python start.py 1
 
 `start.py` creates a private environment, installs what is needed and runs Session 1 with its checkpoint. Next: `python start.py 2`, `python start.py 3`, or `python start.py test` to check everything. Only a checkpoint: `python start.py check 1`.
 
+<!-- friendly-help -->
+<details>
+<summary><b>Not working? Common fixes (no Git, "python not found", no internet)</b></summary>
+
+- **No Git?** You do not need it. On this page click the green **Code** button, then **Download ZIP**, unzip it, open a terminal inside the unzipped folder (it is called `openrecommend-main`) and run `python start.py 1`.
+- **"python is not recognized" or "command not found".** On Windows try `py start.py 1`. On Mac and Linux try `python3 start.py 1`. If neither works, install Python from [python.org](https://www.python.org/downloads/) and tick "Add Python to PATH".
+- **Needs internet once.** The first run downloads NumPy and Matplotlib into a private folder (`.venv`); after that it works offline.
+- **Rather not install anything?** Open the [live apps](https://krunalpanchal1995.github.io/openrecommend/) in your browser, or use the Colab badge at the top of this page.
+- **Still stuck?** [Open an issue](https://github.com/KrunalPanchal1995/openrecommend/issues/new) with your operating system and the message you see. Questions from beginners are welcome.
+
+</details>
+
 A few lines turn the idea of Session 1 into a result (they work as they are): Save it as `try.py` and run it with `python start.py run try.py` (this uses the private environment, where NumPy is installed):
 
 ```python
